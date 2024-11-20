@@ -10,7 +10,7 @@ public partial class UIManager : Control
 
 	// Emitted when the player starts the game
 	[Signal] 
-	public delegate void StartGameEventHandler();
+	public delegate void StartGameEventHandler(string clanName);
 
 	// Emitted when the player changes the Master Volume
 	[Signal] 
@@ -159,5 +159,11 @@ public partial class UIManager : Control
 	private void OnSoundEffectsVolumeSliderValueChanged(float value)
 	{
 		EmitSignal(SignalName.ChangeSoundEffectsVolume, value);
+	}
+
+	private void OnSelectClanButtonPressed(string clanName)
+	{
+		GD.Print("Selected Clan: " + clanName);
+		EmitSignal(SignalName.StartGame, clanName);
 	}
 }

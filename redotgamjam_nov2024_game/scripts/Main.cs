@@ -75,10 +75,12 @@ public partial class Main : Node
 	}
 
 	// Handle Game Start
-	private void OnStartGame()
+	private void OnStartGame(string clanName)
 	{
-		GetNode<AudioStreamPlayer>("AudioManager/MainMenuMusic").Stop();
+		//GetNode<AudioStreamPlayer>("AudioManager/MainMenuMusic").Stop();
 		
 		//GetTree().ChangeSceneToFile("res://game_world.tscn");
+
+		GD.Print("Starting Run with Clan: " + clanName);
 	}
 }
