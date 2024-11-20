@@ -18,16 +18,24 @@ public partial class Main : Node
 	//public float MusicVolume = 1;
 	//public float SFXVolume = 1;
 
+	// Acces to the GameData variables
+	private GameData _gameData;
+
 
 	// Methods
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var gameData = GetTree().Root.GetNode<GameData>("GameData");
-		var MasterVolume = gameData.MasterVolume;
-		var MusicVolume = gameData.MusicVolume;
-		var SFXVolume = gameData.SFXVolume;
+		_gameData = GetTree().Root.GetNode<GameData>("GameData");
+		//var gameData = GetTree().Root.GetNode<GameData>("GameData");
+		//var MasterVolume = gameData.MasterVolume;
+		//var MusicVolume = gameData.MusicVolume;
+		//var SFXVolume = gameData.SFXVolume;
+
+		var MasterVolume = _gameData.MasterVolume;
+		var MusicVolume = _gameData.MusicVolume;
+		var SFXVolume = _gameData.SFXVolume;
 
 		// Initialize the Volume Slider Values
 		GetNode<HSlider>("UIManager/OptionsUI/MasterVolumeSlider").Value = MasterVolume;

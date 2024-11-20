@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk1p13ysqkc8t"]
+[gd_scene load_steps=24 format=3 uid="uid://bk1p13ysqkc8t"]
 
 [ext_resource type="Script" path="res://scripts/UIManager.cs" id="1_kaxon"]
 [ext_resource type="FontFile" uid="uid://cxw0jibq5wigu" path="res://fonts/Montserrat-Medium.ttf" id="1_reiq3"]
@@ -8,6 +8,19 @@
 [ext_resource type="Texture2D" uid="uid://cmsbf854ef0j0" path="res://images/WASDButtons.png" id="6_regx5"]
 [ext_resource type="Texture2D" uid="uid://b75mi6v2onjwm" path="res://images/EscButton.png" id="7_l2btf"]
 [ext_resource type="Texture2D" uid="uid://dv3n18dwd4tf8" path="res://images/TabButton.png" id="8_ggq8d"]
+[ext_resource type="Texture2D" uid="uid://qlxo2g8mqet1" path="res://images/FighterClass.png" id="9_favws"]
+[ext_resource type="Texture2D" uid="uid://dvr4wod5eyno2" path="res://images/GreenSoul.png" id="9_kmgo3"]
+[ext_resource type="Texture2D" uid="uid://2u71tuq7a0cr" path="res://images/RogueClass.png" id="10_acyp8"]
+[ext_resource type="Texture2D" uid="uid://dlj6n74sd6jj1" path="res://images/YellowSoul.png" id="10_g38cu"]
+[ext_resource type="Texture2D" uid="uid://chd543h3kbiss" path="res://images/PurpleSoul.png" id="11_q081y"]
+[ext_resource type="Texture2D" uid="uid://dtxuivhy7uiep" path="res://images/CasterClass.png" id="11_ulu72"]
+[ext_resource type="Texture2D" uid="uid://c475gmjbbmaev" path="res://images/RedSoul.png" id="12_ndsec"]
+[ext_resource type="Texture2D" uid="uid://r8spohkfvkfk" path="res://images/FusionClass.png" id="12_uk5hb"]
+[ext_resource type="Texture2D" uid="uid://sa3xjp38ixk3" path="res://images/BlueSoul.png" id="13_0wdmi"]
+[ext_resource type="Texture2D" uid="uid://cu780yxb7nxfp" path="res://images/ClassCounterChart.png" id="13_tc07e"]
+[ext_resource type="Texture2D" uid="uid://c1n7jml6txy6j" path="res://images/FusionCounter.png" id="14_wqyh6"]
+[ext_resource type="Texture2D" uid="uid://d141m5u1sljr8" path="res://images/OmniSoul.png" id="18_66v0u"]
+[ext_resource type="Texture2D" uid="uid://cihfqf61xey06" path="res://images/SoulCounterChart.png" id="19_mvvrb"]
 
 [sub_resource type="Theme" id="Theme_b4avw"]
 default_font = ExtResource("1_reiq3")
@@ -41,7 +54,7 @@ offset_left = -83.0
 offset_right = 83.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Mighty Minions LMAO!"
+text = "Mighty Miniatures"
 horizontal_alignment = 1
 
 [node name="TitleImage" type="TextureRect" parent="MainMenuUI"]
@@ -63,10 +76,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -15.5
-offset_right = 50.0
-offset_bottom = 15.5
+offset_left = -58.0
+offset_top = -15.0
+offset_right = 58.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start"
@@ -77,13 +90,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -58.0
 offset_top = 16.0
-offset_right = 50.0
+offset_right = 58.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Controls"
+text = "Controls/Help
+"
 
 [node name="OptionsButton" type="Button" parent="MainMenuUI"]
 anchors_preset = 8
@@ -91,9 +105,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -58.0
 offset_top = 47.0
-offset_right = 50.0
+offset_right = 58.0
 offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -105,9 +119,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -58.0
 offset_top = 78.0
-offset_right = 50.0
+offset_right = 58.0
 offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -119,15 +133,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -58.0
 offset_top = 109.0
-offset_right = 50.0
+offset_right = 58.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Exit"
 
 [node name="StartUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Title" type="Label" parent="StartUI"]
 anchors_preset = 5
@@ -532,9 +547,8 @@ grow_vertical = 2
 text = "Select"
 
 [node name="ControlsUI" type="CanvasLayer" parent="."]
-visible = false
 
-[node name="Title" type="Label" parent="ControlsUI"]
+[node name="GameControlsLabel" type="Label" parent="ControlsUI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -542,24 +556,24 @@ offset_left = -57.5
 offset_right = 57.5
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Game Controls"
+text = "Controls/Help"
 horizontal_alignment = 1
 
-[node name="WorldMapControls" type="Control" parent="ControlsUI"]
+[node name="GameControls" type="Control" parent="ControlsUI"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -520.0
 offset_top = -20.0
-offset_right = 20.0
+offset_right = -480.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="ControlsUI/WorldMapControls"]
+[node name="Background" type="ColorRect" parent="ControlsUI/GameControls"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -573,9 +587,9 @@ offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.407843)
+color = Color(0, 0, 0, 0.431373)
 
-[node name="LeftMouseButtonLabel" type="Label" parent="ControlsUI/WorldMapControls"]
+[node name="LeftMouseButtonLabel" type="Label" parent="ControlsUI/GameControls"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -583,15 +597,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -172.0
-offset_top = -202.0
+offset_top = -187.0
 offset_right = 39.0
-offset_bottom = -153.0
+offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Interact/Select Unit
 /Confirm Action/Place Unit:"
 
-[node name="RightMouseButtonLabel" type="Label" parent="ControlsUI/WorldMapControls"]
+[node name="RightMouseButtonLabel" type="Label" parent="ControlsUI/GameControls"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -599,29 +613,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -172.0
-offset_top = -130.0
+offset_top = -101.0
 offset_right = 41.0
-offset_bottom = -81.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Deselect Unit/Remove Unit:"
 
-[node name="CameraMovementLabel" type="Label" parent="ControlsUI/WorldMapControls"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = -74.0
-offset_right = 31.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Battle Camera Movement:"
-
-[node name="EscapeButtonLabel" type="Label" parent="ControlsUI/WorldMapControls"]
+[node name="CameraMovementLabel" type="Label" parent="ControlsUI/GameControls"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -630,13 +629,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -172.0
 offset_top = -15.0
-offset_right = 21.0
+offset_right = 31.0
 offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Open/Close Pause Menu:"
+text = "Battle Camera Movement:"
 
-[node name="TabButtonLabel" type="Label" parent="ControlsUI/WorldMapControls"]
+[node name="EscapeButtonLabel" type="Label" parent="ControlsUI/GameControls"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -644,14 +643,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -172.0
-offset_top = 54.0
+offset_top = 69.0
+offset_right = 21.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Open/Close Pause Menu:"
+
+[node name="TabButtonLabel" type="Label" parent="ControlsUI/GameControls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = 140.0
 offset_right = 1.0
-offset_bottom = 77.0
+offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Open/Close Inventory:"
 
-[node name="LMBImage" type="TextureRect" parent="ControlsUI/WorldMapControls"]
+[node name="LMBImage" type="TextureRect" parent="ControlsUI/GameControls"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -667,7 +681,7 @@ grow_vertical = 2
 texture = ExtResource("4_28523")
 expand_mode = 1
 
-[node name="RMBImage" type="TextureRect" parent="ControlsUI/WorldMapControls"]
+[node name="RMBImage" type="TextureRect" parent="ControlsUI/GameControls"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = -95.0
@@ -676,7 +690,7 @@ offset_bottom = -10.0
 texture = ExtResource("5_n1ajd")
 expand_mode = 1
 
-[node name="WASDImage" type="TextureRect" parent="ControlsUI/WorldMapControls"]
+[node name="WASDImage" type="TextureRect" parent="ControlsUI/GameControls"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = -6.0
@@ -685,7 +699,7 @@ offset_bottom = 79.0
 texture = ExtResource("6_regx5")
 expand_mode = 1
 
-[node name="EscImage" type="TextureRect" parent="ControlsUI/WorldMapControls"]
+[node name="EscImage" type="TextureRect" parent="ControlsUI/GameControls"]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 75.0
@@ -694,14 +708,546 @@ offset_bottom = 139.0
 texture = ExtResource("7_l2btf")
 expand_mode = 1
 
-[node name="TabImage" type="TextureRect" parent="ControlsUI/WorldMapControls"]
+[node name="TabImage" type="TextureRect" parent="ControlsUI/GameControls"]
 layout_mode = 0
 offset_left = 108.0
-offset_top = 146.0
+offset_top = 160.0
 offset_right = 172.0
-offset_bottom = 210.0
+offset_bottom = 224.0
 texture = ExtResource("8_ggq8d")
 expand_mode = 1
+
+[node name="GameControlsLabel" type="Label" parent="ControlsUI/GameControls"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -220.0
+offset_right = 61.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Controls:"
+horizontal_alignment = 1
+
+[node name="UnitClassTypes" type="Control" parent="ControlsUI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -220.0
+offset_right = 180.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.431373)
+
+[node name="FighterClassLabel" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -192.0
+offset_right = 39.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fighter:"
+
+[node name="RogueClass Label" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -117.0
+offset_right = 41.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rogue:"
+
+[node name="CasterClassLabel" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -192.0
+offset_right = 204.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Caster:"
+
+[node name="FusionClassLabel" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -117.0
+offset_right = 194.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fusion:"
+
+[node name="FighterClassImage" type="TextureRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -197.0
+offset_right = -42.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_favws")
+expand_mode = 1
+
+[node name="RogueClassImage" type="TextureRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -117.0
+offset_right = -42.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_acyp8")
+expand_mode = 1
+
+[node name="CasterClassImage" type="TextureRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -197.0
+offset_right = 131.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_ulu72")
+expand_mode = 1
+
+[node name="FusionClassImage" type="TextureRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -115.0
+offset_right = 131.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_uk5hb")
+expand_mode = 1
+
+[node name="UnitClassTypesLabel" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -220.0
+offset_right = 64.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Unit Class Types:"
+
+[node name="ClassCountersLabel" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -30.0
+offset_right = 77.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Class Type Counters:"
+horizontal_alignment = 1
+
+[node name="ClassCounterChart" type="TextureRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -7.0
+offset_right = -12.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_tc07e")
+expand_mode = 1
+
+[node name="FusionCounterChart" type="TextureRect" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -7.0
+offset_right = 161.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_wqyh6")
+expand_mode = 1
+
+[node name="FusionClassNote" type="Label" parent="ControlsUI/UnitClassTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 152.0
+offset_right = 104.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Note: Fusion Class Units 
+counter Fusion Class Units"
+horizontal_alignment = 1
+
+[node name="UnitSoulTypes" type="Control" parent="ControlsUI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 480.0
+offset_top = -20.0
+offset_right = 520.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -220.0
+offset_right = 180.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.431373)
+
+[node name="GreenSoulLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -192.0
+offset_right = 39.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Green:"
+
+[node name="YellowSoulLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -148.0
+offset_right = 41.0
+offset_bottom = -99.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Yellow:"
+
+[node name="PurpleSoulLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -99.0
+offset_right = 31.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Purple:"
+
+[node name="RedSoulLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -192.0
+offset_right = 213.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Red:"
+
+[node name="BlueSoulLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -148.0
+offset_right = 193.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Blue:"
+
+[node name="OmniSoulLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -99.0
+offset_right = 67.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Omni:"
+horizontal_alignment = 1
+
+[node name="GreenSoulImage" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -187.0
+offset_right = -89.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_kmgo3")
+expand_mode = 1
+
+[node name="YellowSoulImage" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -140.0
+offset_right = -89.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_g38cu")
+expand_mode = 1
+
+[node name="PurpleSoulImage" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -94.0
+offset_right = -89.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_q081y")
+expand_mode = 1
+
+[node name="RedSoulImage" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -187.0
+offset_right = 84.0
+offset_bottom = -171.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_ndsec")
+expand_mode = 1
+
+[node name="BlueSoulImage" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -143.0
+offset_right = 84.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_0wdmi")
+expand_mode = 1
+
+[node name="OmniSoulImage" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 77.0
+offset_top = -94.0
+offset_right = 93.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_66v0u")
+expand_mode = 1
+
+[node name="UnitSoulTypesLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -220.0
+offset_right = 62.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Unit Soul Types:"
+horizontal_alignment = 1
+
+[node name="SoulCountersLabel" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -43.0
+offset_right = 77.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Soul Type Counters:"
+horizontal_alignment = 1
+
+[node name="SoulCountersChart" type="TextureRect" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -20.0
+offset_right = 71.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_mvvrb")
+expand_mode = 1
+
+[node name="OmniSoulNote" type="Label" parent="ControlsUI/UnitSoulTypes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = 152.0
+offset_right = 103.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Note: Omni Soul Units do not
+take bonus damage"
+horizontal_alignment = 1
 
 [node name="OptionsUI" type="CanvasLayer" parent="."]
 visible = false
@@ -719,7 +1265,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.407843)
+color = Color(0, 0, 0, 0.431373)
 
 [node name="Title" type="Label" parent="OptionsUI"]
 anchors_preset = 5
@@ -859,7 +1405,7 @@ offset_top = 200.0
 offset_right = 93.0
 offset_bottom = 249.0
 grow_horizontal = 2
-text = "Free Music Assets From:
+text = "Free Music Assets Made By:
 melodyayresgriffiths"
 horizontal_alignment = 1
 
@@ -872,7 +1418,7 @@ offset_top = 300.0
 offset_right = 84.0
 offset_bottom = 349.0
 grow_horizontal = 2
-text = "Free SFX Assets From:
+text = "Free SFX Assets Made By:
 floraphonic"
 horizontal_alignment = 1
 
