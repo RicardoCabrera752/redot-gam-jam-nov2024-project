@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bmxd5xcj7lwfx"]
+[gd_scene load_steps=4 format=3 uid="uid://bmxd5xcj7lwfx"]
+
+[ext_resource type="Script" path="res://scripts/Main.cs" id="1_u30ci"]
+[ext_resource type="PackedScene" uid="uid://bylf018rpxja0" path="res://audio_manager.tscn" id="2_ofhx1"]
+[ext_resource type="PackedScene" uid="uid://bk1p13ysqkc8t" path="res://ui_manager.tscn" id="2_qyjkm"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_u30ci")
+
+[node name="UIManager" parent="." instance=ExtResource("2_qyjkm")]
+
+[node name="AudioManager" parent="." instance=ExtResource("2_ofhx1")]
+
+[connection signal="ChangeMasterVolume" from="UIManager" to="." method="OnChangeMasterVolume"]
+[connection signal="ExitGame" from="UIManager" to="." method="OnExitGame"]
+[connection signal="StartGame" from="UIManager" to="." method="OnStartGame"]
