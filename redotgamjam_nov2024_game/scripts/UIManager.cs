@@ -42,7 +42,7 @@ public partial class UIManager : Control
 		GetNode<CanvasLayer>("ControlsUI").Hide();
 		GetNode<CanvasLayer>("OptionsUI").Hide();
 		GetNode<CanvasLayer>("CreditsUI").Hide();
-		GetNode<Button>("BackButton").Hide();
+		GetNode<CanvasLayer>("BackButtonUI").Hide();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,7 +54,7 @@ public partial class UIManager : Control
 	private void OnStartButtonPressed()
 	{
 		GD.Print("Start Button Pressed");
-		GetNode<Button>("BackButton").Show();
+		GetNode<CanvasLayer>("BackButtonUI").Show();
 		GetNode<CanvasLayer>("MainMenuUI").Hide();
 		GetNode<CanvasLayer>("StartUI").Show();
 		ShowStartScreen = true;
@@ -65,7 +65,7 @@ public partial class UIManager : Control
 	private void OnControlsButtonPressed()
 	{
 		GD.Print("Controls Button Pressed");
-		GetNode<Button>("BackButton").Show();
+		GetNode<CanvasLayer>("BackButtonUI").Show();
 		GetNode<CanvasLayer>("MainMenuUI").Hide();
 		GetNode<CanvasLayer>("ControlsUI").Show();
 		ShowControlsScreen = true;
@@ -76,7 +76,7 @@ public partial class UIManager : Control
 	private void OnOptionsButtonPressed()
 	{
 		GD.Print("Options Button Pressed");
-		GetNode<Button>("BackButton").Show();
+		GetNode<CanvasLayer>("BackButtonUI").Show();
 		GetNode<CanvasLayer>("MainMenuUI").Hide();
 		GetNode<CanvasLayer>("OptionsUI").Show();
 		ShowOptionsScreen = true;
@@ -87,7 +87,7 @@ public partial class UIManager : Control
 	private void OnCreditsButtonPressed()
 	{
 		GD.Print("Credits Button Pressed");
-		GetNode<Button>("BackButton").Show();
+		GetNode<CanvasLayer>("BackButtonUI").Show();
 		GetNode<CanvasLayer>("MainMenuUI").Hide();
 		GetNode<CanvasLayer>("CreditsUI").Show();
 		ShowCreditsScreen = true;
@@ -104,7 +104,7 @@ public partial class UIManager : Control
 	private void OnBackButtonPressed()
 	{
 		GD.Print("Back Button Pressed");
-		GetNode<Button>("BackButton").Hide();
+		GetNode<CanvasLayer>("BackButtonUI").Hide();
 
 		if(ShowStartScreen)
 		{
