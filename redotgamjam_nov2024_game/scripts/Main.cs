@@ -54,12 +54,6 @@ public partial class Main : Node
 	}
 
 	// Handle Master Volume Slider Changes
-	private void OnMasterVolumeSliderValueChanged(float value)
-	{
-		AudioServer.SetBusVolumeDb(MasterVolumeIndex, Mathf.LinearToDb(value));
-		GetTree().Root.GetNode<GameData>("GameData").MasterVolume = value;
-	}
-
 	private void OnChangeMasterVolume(float value)
 	{
 		AudioServer.SetBusVolumeDb(MasterVolumeIndex, Mathf.LinearToDb(value));
@@ -67,14 +61,14 @@ public partial class Main : Node
 	}
 
 	// Handle Music Volume Slider Changes
-	private void OnMusicVolumeSliderValueChanged(float value)
+	private void OnChangeMusicVolume(float value)
 	{
 		AudioServer.SetBusVolumeDb(MusicVolumeIndex, Mathf.LinearToDb(value));
 		GetTree().Root.GetNode<GameData>("GameData").MusicVolume = value;
 	}
 
 	// Handle SFX Volume Slider Changes
-	private void OnSoundVolumeSliderValueChanged(float value)
+	private void OnChangeSoundEffectsVolume(float value)
 	{
 		AudioServer.SetBusVolumeDb(SFXVolumeIndex, Mathf.LinearToDb(value));
 		GetTree().Root.GetNode<GameData>("GameData").SFXVolume = value;

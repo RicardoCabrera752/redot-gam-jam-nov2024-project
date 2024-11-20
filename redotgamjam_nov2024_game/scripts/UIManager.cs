@@ -16,11 +16,11 @@ public partial class UIManager : Control
 	[Signal] 
 	public delegate void ChangeMasterVolumeEventHandler(float value);
 
-	// Emitted when the player changes the Music Volume\
+	// Emitted when the player changes the Music Volume
 	[Signal] 
 	public delegate void ChangeMusicVolumeEventHandler(float value);
 
-	// Emitted when the player changes the SFX Voluem
+	// Emitted when the player changes the SFX Volume
 	[Signal] 
 	public delegate void ChangeSoundEffectsVolumeEventHandler(float value);
 
@@ -145,11 +145,19 @@ public partial class UIManager : Control
 	// Handle Master Volume Slider Changes
 	private void OnMasterVolumeSliderValueChanged(float value)
 	{
-		GD.Print(value);
+		//GD.Print(value);
 		EmitSignal(SignalName.ChangeMasterVolume, value);
 	}
 
 	// Handle Music Volume Slider Changes
+	private void OnMusicVolumeSliderValueChanged(float value)
+	{
+		EmitSignal(SignalName.ChangeMusicVolume, value);
+	}
 
 	// Handle SFX Volume Slider Changes
+	private void OnSoundEffectsVolumeSliderValueChanged(float value)
+	{
+		EmitSignal(SignalName.ChangeSoundEffectsVolume, value);
+	}
 }

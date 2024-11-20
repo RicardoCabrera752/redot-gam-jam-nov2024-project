@@ -12,5 +12,7 @@ script = ExtResource("1_u30ci")
 [node name="AudioManager" parent="." instance=ExtResource("2_ofhx1")]
 
 [connection signal="ChangeMasterVolume" from="UIManager" to="." method="OnChangeMasterVolume"]
+[connection signal="ChangeMusicVolume" from="UIManager" to="." method="OnChangeMusicVolume"]
+[connection signal="ChangeSoundEffectsVolume" from="UIManager" to="." method="OnChangeSoundEffectsVolume"]
 [connection signal="ExitGame" from="UIManager" to="." method="OnExitGame"]
 [connection signal="StartGame" from="UIManager" to="." method="OnStartGame"]
