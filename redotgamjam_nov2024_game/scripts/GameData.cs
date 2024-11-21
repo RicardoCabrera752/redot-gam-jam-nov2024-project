@@ -31,9 +31,11 @@ public partial class GameData : Node
 	// Has the player lost the battle
 	public bool IsBattleLost { get; set; } = false;
 
-	// World Metadata
-	// Has the MaineMenuWorld been killed
+	// Worlds Metadata
+	// Has the MainMenuWorld been killed
 	public bool IsMainMenuWorldDead { get; set; } = false;
+	// Has the GameMapWorld been killed
+	public bool IsGameMapWorldDead { get; set; } = false;
 
 
 

@@ -142,6 +142,7 @@ grow_vertical = 2
 text = "Exit"
 
 [node name="StartUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Title" type="Label" parent="StartUI"]
 anchors_preset = 5

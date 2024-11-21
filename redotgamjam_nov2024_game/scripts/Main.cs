@@ -92,7 +92,8 @@ public partial class Main : Node
 		
 		//GetTree().ChangeSceneToFile("res://game_world.tscn");
 
-		GD.Print("Starting Run with Clan: " + clanName);
 		_customSignals.EmitSignal(nameof(CustomSignals.KillMainMenuWorld));
+		GD.Print("Starting Run with Clan: " + clanName);
+		_customSignals.EmitSignal(nameof(CustomSignals.FirstTimeLoadGameMapWorld));
 	}
 }

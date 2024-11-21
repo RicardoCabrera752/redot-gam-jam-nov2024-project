@@ -135,13 +135,6 @@ public partial class UIManager : Control
 		GetNode<AudioStreamPlayer>("../AudioManager/ButtonSoundEffect").Play();
 	}
 
-	// Handle Start Game Button being pressed
-	private void OnStartGameButtonPressed()
-	{
-		GD.Print("Start Game Button Pressed");
-		EmitSignal(SignalName.StartGame);
-	}
-
 	// Handle Master Volume Slider Changes
 	private void OnMasterVolumeSliderValueChanged(float value)
 	{
@@ -161,8 +154,13 @@ public partial class UIManager : Control
 		EmitSignal(SignalName.ChangeSoundEffectsVolume, value);
 	}
 
+	// Handle Select Clan button being pressed
 	private void OnSelectClanButtonPressed(string clanName)
 	{
+		GetNode<CanvasLayer>("StartUI").Hide();
+		ShowStartScreen = false;
+		GetNode<CanvasLayer>("BackButtonUI").Hide();
+
 		GD.Print("Selected Clan: " + clanName);
 		EmitSignal(SignalName.StartGame, clanName);
 	}
