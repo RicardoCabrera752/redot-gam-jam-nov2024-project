@@ -18,9 +18,11 @@ public partial class Main : Node
 	//public float MusicVolume = 1;
 	//public float SFXVolume = 1;
 
-	// Acces to the GameData variables
+	// Access to the GameData variables
 	private GameData _gameData;
 
+	// Access to the CustomSignals signals
+	private CustomSignals _customSignals;
 
 	// Methods
 
@@ -32,6 +34,7 @@ public partial class Main : Node
 		//var MasterVolume = gameData.MasterVolume;
 		//var MusicVolume = gameData.MusicVolume;
 		//var SFXVolume = gameData.SFXVolume;
+		_customSignals = GetTree().Root.GetNode<CustomSignals>("CustomSignals");
 
 		var MasterVolume = _gameData.MasterVolume;
 		var MusicVolume = _gameData.MusicVolume;
@@ -90,5 +93,6 @@ public partial class Main : Node
 		//GetTree().ChangeSceneToFile("res://game_world.tscn");
 
 		GD.Print("Starting Run with Clan: " + clanName);
+		_customSignals.EmitSignal(nameof(CustomSignals.KillMainMenuWorld));
 	}
 }

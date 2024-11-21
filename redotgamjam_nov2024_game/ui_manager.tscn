@@ -142,7 +142,6 @@ grow_vertical = 2
 text = "Exit"
 
 [node name="StartUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Title" type="Label" parent="StartUI"]
 anchors_preset = 5
@@ -547,6 +546,7 @@ grow_vertical = 2
 text = "Select"
 
 [node name="ControlsUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GameControlsLabel" type="Label" parent="ControlsUI"]
 anchors_preset = 5

@@ -1,6 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b46oc7e7uxivt"]
+[gd_scene load_steps=10 format=3 uid="uid://b46oc7e7uxivt"]
 
 [ext_resource type="Script" path="res://scripts/MainMenuWorld.cs" id="1_wnxbn"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_8ibte"]
+
+[sub_resource type="Sky" id="Sky_48ske"]
+sky_material = SubResource("PhysicalSkyMaterial_8ibte")
+
+[sub_resource type="Environment" id="Environment_chsru"]
+background_mode = 2
+sky = SubResource("Sky_48ske")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_as47e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_caf6f"]
 albedo_color = Color(0.312775, 0.194952, 0.122869, 1)
@@ -16,6 +27,10 @@ material = SubResource("StandardMaterial3D_3bnn5")
 
 [node name="MainMenuWorld" type="Node3D"]
 script = ExtResource("1_wnxbn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_chsru")
+camera_attributes = SubResource("CameraAttributesPractical_as47e")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -37,6 +52,3 @@ shadow_enabled = true
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.614271, -0.123442, 0.77938, -9.98189e-10, 0.987688, 0.156434, -0.789095, -0.0960932, 0.606709, 3.0418, 0.475101, 2.40856)
 current = true
-
-[node name="FogVolume" type="FogVolume" parent="."]
-visible = false

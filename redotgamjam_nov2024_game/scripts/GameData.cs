@@ -26,6 +26,15 @@ public partial class GameData : Node
 	// 
 
 	// Battle Metadata
+	// Has the player won the battle
+	public bool IsBattleWon { get; set; } = false;
+	// Has the player lost the battle
+	public bool IsBattleLost { get; set; } = false;
+
+	// World Metadata
+	// Has the MaineMenuWorld been killed
+	public bool IsMainMenuWorldDead { get; set; } = false;
+
 
 
 	// Amount of enemy units defeated
@@ -36,7 +45,9 @@ public partial class GameData : Node
 	// Player Variables
 
 	// Amount of Runes the Player has currently
-	public int CurrentPlayerRunes {get; set; } = 0;
+	public int CurrentPlayerRunes { get; set; } = 0;
+	// Amount of Mana Cores the Player has currently
+	public int CurrentManaCores { get; set; } = 0;
 
 	
 

@@ -18,6 +18,7 @@ config/icon="res://images/icon.svg"
 [autoload]
 
 GameData="*res://scripts/GameData.cs"
+CustomSignals="*res://scripts/CustomSignals.cs"
 
 [display]
 
